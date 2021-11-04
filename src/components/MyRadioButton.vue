@@ -19,15 +19,27 @@
     >
 
     <div class="d-flex-column ms-2" id="c-slot">
-      <slot></slot>
+      <!-- <slot></slot> -->
+
+      <keep-alive>
+        <component
+          v-if="currentComponent.trim().length > 0"
+          :is="currentComponent"
+        ></component>
+      </keep-alive>
     </div>
   </div>
 </template>
 
 <script>
+import MyForm from "./MyForm.vue";
+import MyFormDate from "./MyFormDate.vue";
 export default {
   name: "MyRadioButton",
-  model: {},
+  components: {
+    form: MyForm,
+    "date:": MyFormDate,
+  },
   props: {
     modelValue: String,
     value: String,
@@ -38,6 +50,15 @@ export default {
       type: Boolean,
       default: false,
     },
+    component: {
+      type: String,
+      default: "",
+    },
+  },
+  data() {
+    return {
+      currentComponent: this.component,
+    };
   },
 };
 </script>

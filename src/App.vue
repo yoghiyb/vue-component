@@ -10,6 +10,7 @@
           label="Radio A"
           value="radio1"
           v-model="val"
+          :component="CompoenentEnum.form"
         />
         <my-radio-button
           id="radio2"
@@ -17,6 +18,7 @@
           label="Radio B"
           value="radio2"
           v-model="val"
+          :component="CompoenentEnum.date"
         />
       </div>
     </div>
@@ -24,7 +26,7 @@
     <br />
     <h3>Subcomponent</h3>
     <div class="col">
-      <my-radio-button
+      <!-- <my-radio-button
         id="rb_sub_component_1"
         name="sub_component"
         :contentCenter="true"
@@ -39,9 +41,9 @@
       >
         <span>TEST</span>
         <input type="date" class="form-control" />
-      </my-radio-button>
+      </my-radio-button> -->
       <br />
-      <my-radio-button
+      <!-- <my-radio-button
         id="rb_sub_component_3"
         name="sub_component"
         :contentCenter="true"
@@ -57,16 +59,15 @@
           <br />
           <input type="text" class="form-control" />
         </my-radio-button>
-      </my-radio-button>
+      </my-radio-button> -->
     </div>
     <br />
   </div>
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
 import MyRadioButton from "./components/MyRadioButton.vue";
-
+import CompoenentEnum from "./enums/component";
 export default {
   name: "App",
   components: {
@@ -75,6 +76,7 @@ export default {
   data() {
     return {
       val: "",
+      CompoenentEnum,
     };
   },
 };
